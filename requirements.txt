@@ -1,0 +1,6 @@
+requests
+selenium
+bs4
+numpy
+opencv-python
+openpyxl
