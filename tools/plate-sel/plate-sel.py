@@ -8,8 +8,10 @@ APP_EXIT = 1000
 
 class MainFrame(wx.Frame):
     def __init__(self, *args, **kwargs):
+        self.init_dir = kwargs['init_dir'] if 'init_dir' in kwargs else None
+        del kwargs['init_dir']
+
         super(MainFrame, self).__init__(*args, **kwargs)
-        self.init_dir = init_dir if 'init_dir' in kwargs else None
         self.list_view = None
         self.init_menu()
         self.init_ui()
@@ -44,7 +46,7 @@ class MainFrame(wx.Frame):
 
         cmd_sizer = wx.BoxSizer(orient=wx.HORIZONTAL)
         edit_btn = wx.Button(self, label="Edit This File")
-        edit_btn.Bind(wx.EVT_BUTTON, self.on_edit)
+        #edit_btn.Bind(wx.EVT_BUTTON, self.on_edit)
         cmd_sizer.Add(edit_btn)
         ctrl.Add(cmd_sizer)
 
